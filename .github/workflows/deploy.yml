@@ -1,0 +1,42 @@
+name: Deploy PokeWiki
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v3
+
+      - name: ⚙️ Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: 📦 Install dependencies
+        run: |
+          cd frontend
+          npm ci
+
+      - name: 🛠️ Build frontend
+        run: |
+          cd frontend
+          npm run build
+
+      - name: 📁 Copy build to proxy/static
+        run: |
+          rm -rf proxy/static
+          mkdir -p proxy/static
+          cp -r frontend/dist/* proxy/static/
+
+      - name: 🚀 Deploy to Vercel
+        run: |
+          npm install -g vercel
+          cd serverless
+          vercel --prod --token ${{ secrets.VERCEL_TOKEN }} \
+            --org ${{ secrets.VERCEL_ORG_ID }} \
+            --project ${{ secrets.VERCEL_PROJECT_ID }}
