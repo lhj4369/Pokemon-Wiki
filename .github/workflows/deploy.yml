@@ -37,6 +37,7 @@ jobs:
         run: |
           npm install -g vercel
           cd serverless
-          vercel --prod --token ${{ secrets.VERCEL_TOKEN }} \
-            --org ${{ secrets.VERCEL_ORG_ID }} \
-            --project ${{ secrets.VERCEL_PROJECT_ID }}
+          vercel --token=${{ secrets.VERCEL_TOKEN }} \
+            --scope=lhj4369 \
+            --prod --confirm
+
