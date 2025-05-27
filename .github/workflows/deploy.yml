@@ -2,7 +2,7 @@ name: Deploy PokeWiki
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
   build-and-deploy:
@@ -31,7 +31,7 @@ jobs:
         run: |
           rm -rf proxy/static
           mkdir -p proxy/static
-          cp -r frontend/dist/* proxy/static/
+          cp -r frontend/dist proxy/static/
 
       - name: 🚀 Deploy to Vercel
         run: |
