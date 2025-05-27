@@ -17,6 +17,11 @@ jobs:
         with:
           node-version: 18
 
+      - name: 📦 Install dependencies
+        run: |
+          cd frontend
+          npm ci
+
       - name: 🛠️ Build frontend
         run: |
           cd frontend
