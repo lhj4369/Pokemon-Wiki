@@ -17,7 +17,7 @@ const FavoriteSidebar = () => {
     };
 
     return (
-        <div className="hidden lg:flex flex-col fixed top-40 right-4 w-40 max-h-[80vh] overflow-y-auto bg-white border border-yellow-300 shadow-lg rounded-xl p-3 z-10">
+        <div className="hidden lg:flex flex-col fixed top-40 right-10 w-40 max-h-[80vh] overflow-y-auto bg-white border border-yellow-300 shadow-lg rounded-xl p-3 z-10">
             <h2 className="text-center text-yellow-600 font-bold mb-2 text-sm">즐겨찾기</h2>
             {favorites.map((p) => (
                 <div
