@@ -1,0 +1,15 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Jua&display=swap');
+
+.font-kor {
+    font-family: 'Jua', 'Gowun Dodum', sans-serif;
+}
+
+.text-stroke {
+    -webkit-text-stroke: 2.5px #1E40AF;
+    /* 파란색 */
+    color: #FFCB05;
+    /* 노란색 */
+    font-weight: 900;
+    /* 아주 굵게 */
+}
