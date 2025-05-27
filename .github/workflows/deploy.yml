@@ -29,12 +29,8 @@ jobs:
 
       - name: 📁 Copy build to proxy/static
         run: |
-          set -e  # 오류 발생 시 즉시 중단
-          echo "🧹 removing old static folder"
           rm -rf proxy/static
-          echo "📂 creating static folder"
           mkdir -p proxy/static
-          echo "📁 copying frontend/dist to proxy/static"
           cp -r frontend/dist/* proxy/static/
 
       - name: 🚀 Deploy to Vercel
